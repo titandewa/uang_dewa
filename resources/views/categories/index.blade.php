@@ -19,12 +19,10 @@
                     @csrf
                     <x-text-input name="name" :value="old('name')" placeholder="Nama kategori (mis. Makan)" class="flex-1" required />
                     <x-text-input name="percentage" type="number" step="0.01" min="0" max="100" :value="old('percentage')" placeholder="Persen (%)" class="sm:w-28" required />
-                    <x-text-input name="balance" type="number" step="1" min="0" :value="old('balance')" placeholder="Saldo awal" class="sm:w-36" />
                     <x-primary-button>Tambah</x-primary-button>
                 </form>
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 <x-input-error :messages="$errors->get('percentage')" class="mt-2" />
-                <x-input-error :messages="$errors->get('balance')" class="mt-2" />
             </div>
 
             {{-- Daftar kategori --}}

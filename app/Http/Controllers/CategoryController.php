@@ -36,7 +36,6 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'percentage' => ['required', 'numeric', 'min:0', 'max:100'],
-            'balance' => ['nullable', 'numeric', 'min:0'],
         ]);
 
         $used = (float) Category::where('user_id', $userId)
@@ -53,7 +52,7 @@ class CategoryController extends Controller
             'user_id' => $userId,
             'name' => $data['name'],
             'percentage' => $data['percentage'],
-            'balance' => $data['balance'] ?? 0,
+            'balance' => 0,
         ]);
 
         return redirect()->route('categories.index');
